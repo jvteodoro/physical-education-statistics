@@ -99,12 +99,13 @@ Conteúdo principal:
 Ferramentas recomendadas:
 
 - Python 3.10+
-- Jupyter Notebook
-- VS Code ou Google Colab
+- marimo para notebooks interativos
+- VS Code, terminal ou editor de sua preferência
 
-Bibliotecas necessárias:
+Bibliotecas necessárias (já configuradas no projeto):
 
 ```text
+marimo
 pandas
 numpy
 matplotlib
@@ -112,13 +113,57 @@ seaborn
 scipy
 statsmodels
 scikit-learn
+plotly
 ```
 
-Instalação:
+Instalação plug and play:
 
 ```bash
-pip install pandas numpy matplotlib seaborn scipy statsmodels scikit-learn
+make install
 ```
+
+O comando acima:
+
+1. cria o ambiente virtual `.venv`
+2. atualiza o `pip`
+3. instala as dependências a partir de `requirements.txt`
+4. registra o projeto em modo editável
+5. gera os datasets educacionais
+
+Se quiser entrar em um terminal já configurado com o ambiente ativo:
+
+```bash
+make activate
+```
+
+Como abrir um notebook marimo:
+
+```bash
+.venv/bin/python -m marimo edit notebooks/semana_01_estatistica_descritiva.py
+```
+
+Atalhos úteis:
+
+```bash
+make install
+make activate
+make generate-data
+make list-notebooks
+make run-week-01
+```
+
+Se preferir fazer manualmente, o fluxo equivalente é:
+
+```bash
+python -m venv .venv
+source .venv/bin/activate  # no Windows: .venv\Scripts\activate
+pip install --upgrade pip
+pip install -r requirements.txt
+pip install --no-build-isolation -e .
+python scripts/generate_datasets.py
+```
+
+Os notebooks interativos das 16 semanas estão na pasta `notebooks/` e o índice completo está em `notebooks/README.md`.
 
 ---
 
@@ -489,6 +534,19 @@ Telama
 Análise:
 
 relação longitudinal de atividade física.
+
+---
+
+## 🧠 Notebooks marimo implementados
+
+Cada semana do cronograma agora possui um notebook marimo interativo correspondente.
+
+- Semanas 1–4: fundamentos de estatística descritiva, percentis, correlação e regressão
+- Semanas 5–8: competência motora, atividade física, comparação entre grupos e interpretação aplicada
+- Semanas 9–12: crescimento, maturação, regressão múltipla e diagnóstico de modelos
+- Semanas 13–16: análises longitudinais, trajetórias, introdução a modelos mistos e síntese para projeto final
+
+Além dos notebooks, o repositório inclui datasets sintéticos educacionais em `data/` para que a experiência seja executável desde o primeiro clone do projeto.
 
 ---
 
