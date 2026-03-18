@@ -119,25 +119,48 @@ plotly
 Instalação plug and play:
 
 ```bash
-python -m venv .venv
-source .venv/bin/activate  # no Windows: .venv\Scripts\activate
-python -m pip install --upgrade pip
-python -m pip install --no-build-isolation -e .
-python scripts/generate_datasets.py
+make install
+```
+
+O comando acima:
+
+1. cria o ambiente virtual `.venv`
+2. atualiza o `pip`
+3. instala as dependências a partir de `requirements.txt`
+4. registra o projeto em modo editável
+5. gera os datasets educacionais
+
+Se quiser entrar em um terminal já configurado com o ambiente ativo:
+
+```bash
+make activate
 ```
 
 Como abrir um notebook marimo:
 
 ```bash
-marimo edit notebooks/semana_01_estatistica_descritiva.py
+.venv/bin/python -m marimo edit notebooks/semana_01_estatistica_descritiva.py
 ```
 
 Atalhos úteis:
 
 ```bash
-make setup
+make install
+make activate
 make generate-data
 make list-notebooks
+make run-week-01
+```
+
+Se preferir fazer manualmente, o fluxo equivalente é:
+
+```bash
+python -m venv .venv
+source .venv/bin/activate  # no Windows: .venv\Scripts\activate
+pip install --upgrade pip
+pip install -r requirements.txt
+pip install --no-build-isolation -e .
+python scripts/generate_datasets.py
 ```
 
 Os notebooks interativos das 16 semanas estão na pasta `notebooks/` e o índice completo está em `notebooks/README.md`.
