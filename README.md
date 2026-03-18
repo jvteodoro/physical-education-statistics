@@ -99,12 +99,13 @@ Conteúdo principal:
 Ferramentas recomendadas:
 
 - Python 3.10+
-- Jupyter Notebook
-- VS Code ou Google Colab
+- marimo para notebooks interativos
+- VS Code, terminal ou editor de sua preferência
 
-Bibliotecas necessárias:
+Bibliotecas necessárias (já configuradas no projeto):
 
 ```text
+marimo
 pandas
 numpy
 matplotlib
@@ -112,13 +113,34 @@ seaborn
 scipy
 statsmodels
 scikit-learn
+plotly
 ```
 
-Instalação:
+Instalação plug and play:
 
 ```bash
-pip install pandas numpy matplotlib seaborn scipy statsmodels scikit-learn
+python -m venv .venv
+source .venv/bin/activate  # no Windows: .venv\Scripts\activate
+python -m pip install --upgrade pip
+python -m pip install --no-build-isolation -e .
+python scripts/generate_datasets.py
 ```
+
+Como abrir um notebook marimo:
+
+```bash
+marimo edit notebooks/semana_01_estatistica_descritiva.py
+```
+
+Atalhos úteis:
+
+```bash
+make setup
+make generate-data
+make list-notebooks
+```
+
+Os notebooks interativos das 16 semanas estão na pasta `notebooks/` e o índice completo está em `notebooks/README.md`.
 
 ---
 
@@ -489,6 +511,19 @@ Telama
 Análise:
 
 relação longitudinal de atividade física.
+
+---
+
+## 🧠 Notebooks marimo implementados
+
+Cada semana do cronograma agora possui um notebook marimo interativo correspondente.
+
+- Semanas 1–4: fundamentos de estatística descritiva, percentis, correlação e regressão
+- Semanas 5–8: competência motora, atividade física, comparação entre grupos e interpretação aplicada
+- Semanas 9–12: crescimento, maturação, regressão múltipla e diagnóstico de modelos
+- Semanas 13–16: análises longitudinais, trajetórias, introdução a modelos mistos e síntese para projeto final
+
+Além dos notebooks, o repositório inclui datasets sintéticos educacionais em `data/` para que a experiência seja executável desde o primeiro clone do projeto.
 
 ---
 
